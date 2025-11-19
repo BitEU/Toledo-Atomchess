@@ -82,3 +82,50 @@ in the book:
   * Pillman game.
   * Toledo Atomchess.
   * bootBASIC language.
+
+
+>> C PORT FOR WINDOWS AND UNIVAC <<
+
+This repository also includes a modern C port of Toledo Atomchess Reloaded
+that can run on Windows conhost and UNIVAC mainframe systems.
+
+Features of the C port:
+  * Full chess movements (promotion to queen, en passant, castling)
+  * Algebraic notation input (e.g., D2D4)
+  * Move validation
+  * 3-ply search depth
+  * Cross-platform support (Windows and UNIVAC)
+  * BSS initialization following proper C standards
+  * Platform-specific string handling (strncpy for UNIVAC, strcpy_s for Windows)
+
+Building the C version:
+
+  Windows (using build.bat):
+    1. Run: build.bat
+    2. Select platform: 1 for Windows, 2 for UNIVAC
+    3. Select compiler: 1 for MinGW, 2 for MSVC (Windows only)
+
+  Manual compilation:
+    Windows with MinGW:
+      gcc -O3 -Wall -o toledo_atomchess.exe toledo_atomchess.c
+
+    UNIVAC cross-compile:
+      gcc -DUNIVAC -O2 -Wall -o toledo_atomchess_univac.exe toledo_atomchess.c
+
+Files:
+  * toledo_atomchess.h - Header file with data structures
+  * toledo_atomchess.c - Main implementation
+  * build.bat - Unified build script for Windows and UNIVAC
+
+Running the C version:
+
+  Windows:
+    toledo_atomchess_mingw.exe   (MinGW build)
+    toledo_atomchess.exe         (MSVC build)
+
+  Enter moves in algebraic notation (column-row format):
+    Your move: D2D4
+    (Move pawn from D2 to D4)
+
+The C port preserves the logic and algorithms from the original assembly
+version while providing better portability and maintainability.

@@ -1,3 +1,7 @@
-.DS_Store
-nasm
-
+/team_data
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.o
+/.claude
