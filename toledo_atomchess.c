@@ -29,8 +29,12 @@ const unsigned char initial_position[8] = {
     // Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook
 };
 
-// Display characters for pieces (line 434-435)
-const char display_chars[16] = ".prbqnk\r.PRBQNK";
+// Display characters for pieces (two-character format for teletype)
+// Index 0-7: Black pieces, Index 8-15: White pieces
+const char display_chars[16][3] = {
+    "..", "BP", "BR", "BB", "BQ", "BN", "BK", "??",  // Black: empty, pawn, rook, bishop, queen, knight, king, frontier
+    "..", "WP", "WR", "WB", "WQ", "WN", "WK", "??"   // White: empty, pawn, rook, bishop, queen, knight, king, frontier
+};
 
 // Movement displacement table (lines 427-432)
 // Knight, King, Bishop, Pawn-black, Pawn-white movements
@@ -140,8 +144,8 @@ void setup_board(ChessState* state) {
 
 // Display the board (lines 273-288)
 void display_board(const ChessState* state) {
-    // Display column labels
-    printf("   a  b  c  d  e  f  g  h\n\n");
+    // Display column labels (uppercase for teletype)
+    printf("    A   B   C   D   E   F   G   H\n\n");
 
     // Display 8 rows of 8 squares each
     for (int row = 0; row < 8; row++) {
@@ -154,8 +158,7 @@ void display_board(const ChessState* state) {
         for (int col = 0; col < 8; col++) {
             int pos = row_base + col;
             unsigned char piece = state->board[pos] & PIECE_FULL_MASK;  // Remove "moved" bit
-            char ch = display_chars[piece];
-            printf("%c", ch);
+            printf("%s", display_chars[piece]);
 
             // Add spacing between pieces (but not after the last piece)
             if (col < 7) {
@@ -558,8 +561,8 @@ void run_game(ChessState* state) {
 #endif
         char first_upper = (char)toupper(first_char_raw);
 
-        // Check for 'Q' (quit) or 'E' (exit)
-        if (first_upper == 'Q' || first_upper == 'E') {
+        // Check for 'Q' (quit)
+        if (first_upper == 'Q') {
             printf("\nThanks for playing!\n");
             exit(0);
         }

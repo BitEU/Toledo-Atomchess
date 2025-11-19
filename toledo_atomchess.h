@@ -100,8 +100,8 @@ extern const int piece_scores[7];
 // Initial piece setup (first rank)
 extern const unsigned char initial_position[8];
 
-// Display characters for pieces
-extern const char display_chars[16];
+// Display characters for pieces (two-character format for teletype)
+extern const char display_chars[16][3];
 
 // Movement displacement tables
 #define DISP_KNIGHT 0
