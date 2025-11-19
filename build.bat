@@ -114,7 +114,7 @@ if %ERRORLEVEL% EQU 0 (
     echo Output: toledo_atomchess_univac.exe
 
     REM Display file size
-    for %%A in (toledo_atomchess_univac.exe^) do (
+    for %%A in (toledo_atomchess_univac.exe) do (
         echo File size: %%~zA bytes
     )
     echo.
