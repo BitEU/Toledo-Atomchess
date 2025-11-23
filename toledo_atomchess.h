@@ -1,18 +1,16 @@
 /*
- * Toledo Atomchess Reloaded
- * Modern C implementation for Windows Console and UNIVAC
+ * Program Name: Toledo-Atomchess
+ * Program Release Year: 2025
+ * Program Author: Steven S.
+ * Program Link: https://github.com/BitEU/Toledo-Atomchess
+ * 
+ * Original Name: Toledo Atomchess
+ * Original Release Year: 2019
+ * Original Author: Oscar Toledo Gutierrez
+ * Original Link: https://github.com/nanochess/Toledo-Atomchess
+ * Original System: x86 Assembly
  *
- * by Oscar Toledo Gutierrez
- * (c) Copyright 2015 Oscar Toledo Gutierrez
- *
- * Converted to C from x86 assembly
- * Supports Windows conhost and UNIVAC mainframe
- *
- * Features:
- * - Full chess movements (except promotion only to queen)
- * - Enter moves as algebraic form (D2D4) (your moves are validated)
- * - Search depth of 3-ply
- * - 0x88 board representation
+ * Major changes from original: Ported to C, improved chess board, added Windows Console/UNIVAC 1219 support
  */
 
 #ifndef TOLEDO_ATOMCHESS_H

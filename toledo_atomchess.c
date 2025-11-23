@@ -1,11 +1,16 @@
 /*
- * Toledo Atomchess Reloaded
- * Main implementation
+ * Program Name: Toledo-Atomchess
+ * Program Release Year: 2025
+ * Program Author: Steven S.
+ * Program Link: https://github.com/BitEU/Toledo-Atomchess
+ * 
+ * Original Name: Toledo Atomchess
+ * Original Release Year: 2019
+ * Original Author: Oscar Toledo Gutierrez
+ * Original Link: https://github.com/nanochess/Toledo-Atomchess
+ * Original System: x86 Assembly
  *
- * by Oscar Toledo Gutierrez
- * (c) Copyright 2015 Oscar Toledo Gutierrez
- *
- * Converted to C from x86 assembly
+ * Major changes from original: Ported to C, improved chess board, added Windows Console/UNIVAC 1219 support
  */
 
 #include "toledo_atomchess.h"
@@ -550,7 +555,7 @@ void run_game(ChessState* state) {
         display_board(state);
 
         // Get player move
-        printf("\nYour move (e.g., D2D4 or 'quit' to exit): ");
+        printf("\nYour move (e.g., D2D4 or 'q' to exit): ");
 
         // Read first character WITHOUT masking to check for quit command
 #ifdef UNIVAC
